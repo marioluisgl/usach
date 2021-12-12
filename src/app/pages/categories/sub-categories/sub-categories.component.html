@@ -1,0 +1,153 @@
+<!-- start page title -->
+<app-pagetitle title="Ajustes" [breadcrumbItems]="breadCrumbItems"></app-pagetitle>
+<!-- end page title -->
+
+<!-- start Plan list -->
+<div class="card">
+  <div class="card-body">
+    <div class="flex-row--space-between">
+      <h4 class="card-title mb-4">Listado de Subcategorías</h4>
+      <div class="flex-row--end position-relative pb-10">
+        <div class="flex-column-center">
+          <button class="btn btn-primary avatar-xs rounded-circle m-5" type="button"
+            (click)="openModal()">
+            <span class="avatar-title bg-transparent text-reset">
+              <i class="bx bx-filter md-24 l-height-26"></i>
+            </span>
+          </button>
+          <span class="font-size-12 pl-10 pr-10">Filtrar</span>
+        </div>
+        <div class="flex-column-center">
+          <button class="btn btn-primary avatar-xs rounded-circle m-5" type="button"
+            (click)="openModalCreateSubCategory(false)">
+            <span class="avatar-title bg-transparent text-reset">
+              <i class="bx bx-plus md-24 l-height-26"></i>
+            </span>
+          </button>
+          <span class="font-size-12 pl-10 pr-10">Adicionar Subcategoría</span>
+        </div>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-middle table-hover table-nowrap mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Categorí asociada</th>
+            <th>H x semana</th>
+            <th>H x semestre</th>
+            <th>Puntuación</th>
+            <th>Estado</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of subcategories">
+            <td>{{data._id}}</td>
+            <td>{{data.name}}</td>
+            <td>{{data.category.name}}</td>
+            <td>{{data.hours_per_week}}</td>
+            <td>{{data.hours_per_semestre}}</td>            
+            <td>{{data.score}}</td>
+            <td>
+              <span class="badge bg-success bg-soft text-success"
+                [ngClass]=" { 'text-danger bg-danger': data.status === 'Blocked' }">{{data.active ? active : inActive}}</span>
+            </td>
+            <td>
+              <div class="flex-row--end">
+                <!-- <a [routerLink]="['/plans/details', data.id ]">
+                  <i class="bx bx-show md-20 m-5 cursor-pointer"></i>
+                </a> -->
+                
+                <a (click)="openModalCreateSubCategory(true)">
+                  <i class="bx bx-edit md-20 m-5 cursor-pointer"></i>
+                </a>
+               
+                <i class="bx bxs-trash md-20 m-5 cursor-pointer"></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- Pagination -->
+    <div class="col-sm-12 pt-10">
+      <div class="text-md-right float-md-end pagination-rounded">
+          <ngb-pagination [collectionSize]="totalItems" [(page)]="page"
+              [pageSize]="pageSize">
+          </ngb-pagination>
+      </div>
+    </div>
+    <!-- End Pagination -->
+  </div>
+</div>
+
+<!-- ends plans list -->
+
+
+<!-- start filter modal -->
+<ng-template #filters let-modal>
+  <div class="modal-header border-bottom-0">
+    <div class="flex-row--start">
+      <i class="bx bx-filter md-24 l-height-17"></i>
+      <h5>Filtrar</h5>
+    </div>
+    
+    <button type="button" class="btn-close" aria-label="Close" 
+      (click)="modal.dismiss('Cross click')">
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="text-center mb-4">
+      <form>
+        <div class="row justify-content-center">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="course" placeholder="">
+                <label for="floatingInput">Nombre de la Subcategoría</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="h-week" placeholder="">
+                <label for="floatingInput">Horas semana</label>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="h-semestre" placeholder="">
+                <label for="floatingInput">Horas semestre</label>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-floating mb-3">
+                <input type="number" class="form-control" id="score" placeholder="">
+                <label for="floatingInput">Puntuación</label>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="form-floating">
+                <select class="form-select" id="state" aria-label="Floating label select example">
+                  <option selected>Seleccione</option>
+                  <option value="1">Activas</option>
+                  <option value="2">Inactivas</option>
+                </select>
+                <label for="floatingSelect">Estado</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-row--end p-10">
+          <button type="button" class="btn btn-secondary">Aplicar filtro</button>
+        </div>       
+      </form>
+    </div>
+  </div>
+</ng-template>
+<!-- end filter modal -->

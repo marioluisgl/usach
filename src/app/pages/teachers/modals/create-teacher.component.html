@@ -1,0 +1,58 @@
+<div class="modal-header border-bottom-0">
+  <div class="flex-row--start">
+    <i class="bx bx-edit md-24 l-height-17"></i>
+    <h5>{{modalTitle}}</h5>
+  </div>
+  
+  <button type="button" class="btn-close" aria-label="Close" 
+    (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<div class="modal-body">
+  <div class="text-center mb-4">
+    <form>
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" placeholder="Ej. Mario Luis">
+              <label for="floatingInput">Nombre del profesor</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <input type="email" class="form-control" id="email" placeholder="email@gmail.com">
+              <label for="floatingInput">Correo del profesor</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating">
+              <select class="form-select" id="role" aria-label="Floating label select example">
+                <option selected>Seleccione</option>
+                <option value="1">ROLE TEACHER</option>
+                <option value="2">ROLE DIRECTOR</option>
+              </select>
+              <label for="floatingSelect">Adicionar rol</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-floating">
+              <select class="form-select" id="state" aria-label="Floating label select example">
+                <option selected>Seleccione</option>
+                <option value="1">Activo</option>
+                <option value="2">Inactivo</option>
+              </select>
+              <label for="floatingSelect">Estado del profesor</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row--end p-10">
+        <button (click)="createTeacher()" type="button" class="btn btn-secondary">Crear Profesor</button>
+      </div>       
+    </form>
+  </div>
+</div>
+

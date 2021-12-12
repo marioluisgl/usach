@@ -1,0 +1,60 @@
+<div class="modal-header border-bottom-0">
+  <div class="flex-row--start">
+    <i class="bx bx-edit md-24 l-height-17"></i>
+    <h5>{{modalTitle}}</h5>
+  </div>
+  
+  <button type="button" class="btn-close" aria-label="Close" 
+    (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<div class="modal-body">
+  <div class="text-center mb-4">
+    <form>
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="name" placeholder="">
+              <label for="floatingInput">Nombre del curso</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">               
+              <input class="form-control" type="date" id="example-date-input">
+              <label for="example-date-input" class="form-label">Envío 1er semestre</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">               
+              <input class="form-control" type="date" id="example-date-input">
+              <label for="example-date-input" class="form-label">Revisión 1er semestre</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">               
+              <input class="form-control" type="date" id="example-date-input">
+              <label for="example-date-input" class="form-label">Envío 2do semestre</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">               
+              <input class="form-control" type="date" id="example-date-input">
+              <label for="example-date-input" class="form-label">Revisión 2do semestre</label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row--end p-10">
+        <button (click)="createCurse()" type="button" class="btn btn-secondary">Crear curso</button>
+      </div>       
+    </form>
+  </div>
+</div>
+
+
+

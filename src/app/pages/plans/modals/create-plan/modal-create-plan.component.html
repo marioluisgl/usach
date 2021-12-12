@@ -1,0 +1,63 @@
+<div class="modal-header border-bottom-0">
+  <div class="flex-row--start">
+    <i class="bx bx-edit md-24 l-height-17"></i>
+    <h5>{{modalTitle}}</h5>
+  </div>
+  
+  <button type="button" class="btn-close" aria-label="Close" 
+    (click)="activeModal.dismiss('Cross click')">
+  </button>
+</div>
+<div class="modal-body">
+  <div class="text-center mb-4">
+    <form>
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="professor" aria-label="Floating label select example">
+                <option selected>Seleccione</option>
+                <option value="1">2018 - 2019</option>
+                <option value="2">2019 - 2020</option>
+                <option value="3">2020 - 2021</option>
+              </select>
+              <label for="floatingSelect">Curso</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="form-floating mb-3">
+              <select class="form-select" id="professor" aria-label="Floating label select example">
+                <option selected>Seleccione</option>
+                <option value="1">1er Semestre</option>
+                <option value="2">2do Semestre</option>
+              </select>
+              <label for="floatingSelect">Semestre</label>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="form-floating">
+              <select class="form-select" id="professor" aria-label="Floating label select example">
+                <option selected>Seleccione</option>
+                <option value="1">Mario Luis</option>
+                <option value="2">Juan Palbo</option>
+                <option value="3">Pedro Garcia</option>
+              </select>
+              <label for="floatingSelect">Profesor</label>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <form class="form-floating mb-3">
+              <input type="number" class="form-control" id="score" placeholder="Ej. 85">
+              <label for="floatingInputInvalid">Puntuación</label>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="flex-row--end p-10">
+        <button (click)="createPlan()" type="button" class="btn btn-secondary">Crear plan</button>
+      </div>       
+    </form>
+  </div>
+</div>
